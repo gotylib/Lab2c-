@@ -1,0 +1,356 @@
+[
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "CreateBook",
+    "RelativePath": "BookShop/AddBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "book",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.BookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "CreateCategory",
+    "RelativePath": "BookShop/AddCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "CreateManager",
+    "RelativePath": "BookShop/AddManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "manager",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.ManagerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "CreateShop",
+    "RelativePath": "BookShop/AddShop",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shop",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.ShopDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "CreateUser",
+    "RelativePath": "BookShop/AddUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "DeleteBook",
+    "RelativePath": "BookShop/DeleteBook",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "DeleteCatrgory",
+    "RelativePath": "BookShop/DeleteCatrgory",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "DeleteManager",
+    "RelativePath": "BookShop/DeleteManager",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "DeleteShop",
+    "RelativePath": "BookShop/DeleteShop",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "DeleteUser",
+    "RelativePath": "BookShop/DeleteUser",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "GetBooks",
+    "RelativePath": "BookShop/GetBooks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "GetCategory",
+    "RelativePath": "BookShop/GetCatrgory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "GetManagers",
+    "RelativePath": "BookShop/GetManagers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "GetShop",
+    "RelativePath": "BookShop/GetShops",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "GetUsers",
+    "RelativePath": "BookShop/GetUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "LinkCategory",
+    "RelativePath": "BookShop/LinkCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryLink",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.Links.CategoryLinkDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "LinkManager",
+    "RelativePath": "BookShop/LinkManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "managerLink",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.Links.ManagerLinkDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "LinkShop",
+    "RelativePath": "BookShop/LinkShop",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shopLink",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.Links.ShopLinkDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "LinkUser",
+    "RelativePath": "BookShop/LinkUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userLink",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.Links.UserLinkDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "UpdateBook",
+    "RelativePath": "BookShop/UpdateBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "book",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.BookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "UpdateCategory",
+    "RelativePath": "BookShop/UpdateCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "UpdateManager",
+    "RelativePath": "BookShop/UpdateManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "manager",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.ManagerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "UpdateShop",
+    "RelativePath": "BookShop/UpdateShop",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shop",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.ShopDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "\u041B\u0430\u0431\u0430_2_Web.Controllers.BookShopController",
+    "Method": "UpdateUser",
+    "RelativePath": "BookShop/UpdateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "\u041B\u0430\u0431\u0430_2_Web.Core.DTO.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

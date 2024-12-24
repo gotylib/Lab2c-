@@ -16,9 +16,6 @@ public class User
 
     public IList<Book> Books { get; set; }
 
-    public IList<Сategory> Categories { get; set; }
-
-    public IList <Shop> Shops { get; set; }
     public User(DateTime createdAt, string name = "Null", string surname = "Null", int age = 0)
     {
         Name = name;
@@ -26,8 +23,6 @@ public class User
         Age = age;
         CreatedAt = createdAt;
         Books = new List<Book>();
-        Categories = new List<Сategory>();
-        Shops = new List<Shop>();
     }
 }
 

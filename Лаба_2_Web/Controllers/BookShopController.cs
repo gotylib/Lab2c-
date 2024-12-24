@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Лаба_2_Web.Core.DTO;
+using Лаба_2_Web.Core.DTO.Links;
 
 namespace Лаба_2_Web.Controllers
 {
@@ -16,9 +18,7 @@ namespace Лаба_2_Web.Controllers
         public ActionResult GetUsers()
         {
             return Ok(_context.Users
-                        .Include(u => u.Shops)
                         .Include(u => u.Books)
-                        .Include(u => u.Categories)
                         .ToList());
         }
 
@@ -34,7 +34,7 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("UpdateUser")]
 
-        public ActionResult UpdateUser(User user)
+        public ActionResult UpdateUser([FromBody] UserDto user)
         {
             if (user == null)
             {
@@ -51,9 +51,6 @@ namespace Лаба_2_Web.Controllers
             existingUser.Surname = user.Surname;
             existingUser.Age = user.Age;
             existingUser.CreatedAt = user.CreatedAt;
-            existingUser.Shops = user.Shops;
-            existingUser.Books = user.Books;
-            existingUser.Categories = user.Categories;
 
             _context.SaveChanges();
 
@@ -62,10 +59,11 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("AddUser")]
 
-        public ActionResult CreateUser(User user)
+        public ActionResult CreateUser([FromBody] UserDto user)
         {
             if (user == null) { return NotFound(); }
-            _context.Users.Add(user);
+            var newUser = new User(user.CreatedAt, user.Name, user.Surname, user.Age);
+            _context.Users.Add(newUser);
             _context.SaveChanges();
             return Ok();    
         }
@@ -90,7 +88,7 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("UpdateManager")]
 
-        public ActionResult UpdateManager(Manager manager)
+        public ActionResult UpdateManager([FromBody] ManagerDto manager)
         {
             if (manager == null)
             {
@@ -107,7 +105,6 @@ namespace Лаба_2_Web.Controllers
             existingManager.Name = manager.Name;
             existingManager.Age = manager.Age;
             existingManager.CreatedAt = manager.CreatedAt;
-            existingManager.Clients = manager.Clients;
 
 
             _context.SaveChanges();
@@ -117,10 +114,11 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("AddManager")]
 
-        public ActionResult CreateManager(Manager manager)
+        public ActionResult CreateManager([FromBody] ManagerDto manager)
         {
             if (manager == null) { return NotFound(); }
-            _context.Managers.Add(manager);
+            var newManager = new Manager(manager.CreatedAt, manager.Name, manager.Surname, manager.Age);
+            _context.Managers.Add(newManager);
             _context.SaveChanges();
             return Ok();
         }
@@ -149,7 +147,7 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("UpdateBook")]
 
-        public ActionResult UpdateBook(Book book)
+        public ActionResult UpdateBook([FromBody] BookDto book)
         {
             if (book == null)
             {
@@ -166,9 +164,6 @@ namespace Лаба_2_Web.Controllers
             existingBook.СoverPath = book.СoverPath;
             existingBook.FilePath = book.FilePath;
             existingBook.Title = book.Title;    
-            existingBook.Readers = book.Readers;
-            existingBook.Shops  = book.Shops;
-            existingBook.Categories = book.Categories;
 
 
             _context.SaveChanges();
@@ -178,10 +173,11 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("AddBook")]
 
-        public ActionResult CreateBook(Book book)
+        public ActionResult CreateBook([FromBody]BookDto book)
         {
             if (book == null) { return NotFound(); }
-            _context.Books.Add(book);
+            var newBook = new Book(book.Title, book.Author, book.FilePath, book.СoverPath);
+            _context.Books.Add(newBook);
             _context.SaveChanges();
             return Ok();
         }
@@ -208,7 +204,7 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("UpdateShop")]
 
-        public ActionResult UpdateShop(Shop shop)
+        public ActionResult UpdateShop([FromBody] ShopDto shop)
         {
             if (shop == null)
             {
@@ -222,7 +218,6 @@ namespace Лаба_2_Web.Controllers
             }
 
             existingShop.Address = shop.Address;
-            existingShop.Books = shop.Books;
 
 
             _context.SaveChanges();
@@ -232,10 +227,11 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("AddShop")]
 
-        public ActionResult CreateShop(Shop shop)
+        public ActionResult CreateShop([FromBody] ShopDto shop)
         {
             if (shop == null) { return NotFound(); }
-            _context.Shops.Add(shop);
+            var newShop = new Shop(shop.Address);
+            _context.Shops.Add(newShop);
             _context.SaveChanges();
             return Ok();
         }
@@ -262,7 +258,7 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("UpdateCategory")]
 
-        public ActionResult UpdateCategory(Сategory category)
+        public ActionResult UpdateCategory([FromBody] CategoryDto category)
         {
             if (category == null)
             {
@@ -276,7 +272,6 @@ namespace Лаба_2_Web.Controllers
             }
 
             existingCategory.Name = category.Name;  
-            existingCategory.Books = category.Books;
 
 
             _context.SaveChanges();
@@ -286,13 +281,105 @@ namespace Лаба_2_Web.Controllers
 
         [HttpPost("AddCategory")]
 
-        public ActionResult CreateCategory(Сategory category)
+        public ActionResult CreateCategory([FromBody] CategoryDto category)
         {
             if (category == null) { return NotFound(); }
-            _context.Categories.Add(category);
+            var newCategory = new Сategory(category.Name);
+            _context.Categories.Add(newCategory);
             _context.SaveChanges();
             return Ok();
         }
+
+        [HttpPost("LinkUser")]
+
+        public ActionResult LinkUser([FromBody] UserLinkDto userLink)
+        {
+            if (userLink.IdUser == 0 || userLink.IdBook == 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+
+            var user = _context.Users.Find(userLink.IdUser);
+            var book = _context.Books.Find(userLink.IdBook);
+
+            if (user == null || book == null)
+            {
+                return NotFound("User or book not found.");
+            }
+
+            user.Books.Add(book);
+            book.Readers.Add(user);
+
+            _context.SaveChanges();
+
+            return Ok();
+
+        }
+
+        [HttpPost("LinkManager")]
+        public ActionResult LinkManager([FromBody] ManagerLinkDto managerLink)
+        {
+            if (managerLink.IdManager == 0 || managerLink.IdUser == 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+            var manager = _context.Managers.Find(managerLink.IdManager);
+            var user  = _context.Users.Find(managerLink.IdUser);
+
+            if (user == null || manager == null)
+            {
+                return NotFound("User or book not found.");
+            }
+            manager.Clients.Add(user);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPost("LinkShop")]
+        public ActionResult LinkShop([FromBody] ShopLinkDto shopLink)
+        {
+            if (shopLink.IdShop == 0 || shopLink.IdBook == 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+
+            var shop = _context.Shops.Find(shopLink.IdShop);
+            var book = _context.Books.Find(shopLink.IdBook);
+
+            if(shop == null || book == null)
+            {
+                return NotFound("User or book not found.");
+            }
+
+            shop.Books.Add(book);
+            book.Shops.Add(shop);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPost("LinkCategory")]
+        public ActionResult LinkCategory([FromBody]  CategoryLinkDto categoryLink)
+        {
+            if (categoryLink.IdCategory == 0 || categoryLink.IdBook == 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+
+            var category = _context.Categories.Find(categoryLink.IdCategory);
+            var book = _context.Books.Find(categoryLink.IdBook);
+
+            if (category == null || book == null)
+            {
+                return NotFound("User or book not found.");
+            }
+
+            category.Books.Add(book);
+            book.Categories.Add(category);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        
     }
 }
 
